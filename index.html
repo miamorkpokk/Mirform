@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page title</title>
+    <title>miamor homepage</title>
     <style >
         body {
             background-color: darkblue;
         }
-        button {
+        .button {
             background-color: blue;
             color: white;
             padding:17px;
@@ -68,12 +68,26 @@
             font-style:italic;
             font-size:30px;
         }
+        .mylist{
+            display: block;
+            background-color: black;
+            width: 80%;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .mybtn{
+            border: none;
+            width: 85%;
+            background-color: black;
+            color: white;
+
+        }
     </style>
 </head>
 <body>
     <section class="container">
         <div class="fst">
-              <img src="Screenshot_20250803-135503.png" alt=""class="img">
+              <img src="mai.png" alt=""class="img">
         </div>
         <h1>Create An Account</h1>
         <form>
@@ -89,23 +103,25 @@
             <p class="myp"id="myp3">phone number is required....</p>
             <br>
             <br>
-            <datalist id="option">
-                <option >Select package</option>
-                <option >plus package </option>
-                <option>ultra package</option>
-            </datalist>
-            <input list="option"placeholder ="Select Package" class="input"id="package">
+            <input type="text" placeholder ="Select Package" class="input"id="package">
             <p class="myp"id="myp4">select package please...</p>
             <br>
+            <div class="mylist"id='mylist'>
+              <button class="mybtn"id="selpack">SELECT PACKAGE</button>
+              <hr>
+              <button class="mybtn"id="pluspack">MIAMOR DIAMOND PACKAGE</button>
+              <hr>
+              <button class="mybtn"id="ultrapack">MIAMOR SILVER PACKAGE</button>
+            </div>
             <br>
             <input type ="text"class="input"id="coupon"placeholder="Enter Access key"/>
-            <p class="myp"id="myp5">Access key is required....</p>
-            <p>Don't have access key?<a href="https://wa.link/nlkqak" class="link">Get one now!</a></p>
+            <p class="myp"id="myp5">Access keyis required....</p>
+            <p>Don't have Access key?<a href="https://wa.link/nlkqak" class="link">Get one now!</a></p>
             <input type ="password"class="input"placeholder="Enter password"id="password"/>
              <p class="myp"id="myp6">password is required....</p>
             <br>
             <br>
-            <button onclick="signup ()">Signup</button>
+            <button class="button" onclick="signup ()">Signup</button>
         </form>
     </section>
     <script>
@@ -118,7 +134,7 @@
             let phonenumber = document.getElementById("phonenumber");
             let package = document.getElementById("package");
             let password = document.getElementById("password");
-            
+
             let myp1 = document.getElementById("myp1");
             let myp2 = document.getElementById("myp2");
             let myp3 = document.getElementById("myp3");
@@ -167,6 +183,32 @@
                 password.style.border="1px solid red"
             }
         }
+        
+        let selpack=document.getElementById('selpack');
+        let pluspack=document.getElementById('pluspack');
+        let ultrapack=document.getElementById('ultrapack');
+        let package = document.getElementById("package");
+        let mylist=document.getElementById('mylist');
+        mylist.style.display='none';
+        selpack.addEventListener('click',()=>{
+            event.preventDefault();
+            package.value='Select package';
+            mylist.style.display='none';
+        });
+        pluspack.addEventListener('click',()=>{
+            event.preventDefault();
+            package.value='Miamor diamond package';
+            mylist.style.display='none';
+        });
+        ultrapack.addEventListener('click',()=>{
+            event.preventDefault();
+            package.value='miamor silver package';
+            mylist.style.display='none';
+        });
+        package.addEventListener('click',()=>{
+           event.preventDefault();
+           mylist.style.display='block';
+        });
     </script>
 </body>
-  </html>
+</html> 
